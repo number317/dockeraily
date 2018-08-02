@@ -6,11 +6,12 @@ init_dir(){
 }
 
 main(){
-    init_dir
+    #init_dir
     docker run -d \
                -v $HOME/Docker/fluentd/conf/fluent.conf:/fluentd/etc/fluent.conf \
                -v $HOME/Docker/fluentd/data:/fluentd/log \
                -v $HOME/Docker/fluentd/plugins:/fluentd/plugins \
+               -p 24224:24224 \
                --name fluentd \
                fluent/fluentd
 }
