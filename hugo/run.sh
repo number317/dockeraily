@@ -1,15 +1,15 @@
 #!/bin/bash
 init_dir(){
-    ln -sfv $HOME/Code/blog $HOME/Docker/hugo/
+    ln -sfv $HOME/Codes/blog $PWD/
 }
 
 main(){
     init_dir
     docker run -it \
                -p 1313:1313 \
-               -v $HOME/Docker/hugo/blog:/blog \
+               -v $PWD/blog:/blog \
                --name hugo \
-               alpine/hugo:0.40.1
+               cheon/hugo:alpine
 }
 
 main
