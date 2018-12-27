@@ -1,3 +1,6 @@
+fluent-bit/conf
+fluent-bit/log
+
 fluentd/conf
 fluentd/data
 fluentd/plugins
@@ -9,6 +12,8 @@ httpd/conf
 httpd/htdocs
 
 hugo/blog
+
+kafka/data
 
 kubectl/config
 

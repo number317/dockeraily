@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  kafka0:
+    image: "bitnami/kakfa"
+    ports:
+      - 9092:9092
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
+      - ALLOW_PLINTEXT_LISTENER: yes
+    volumes:
+      - $PWD/data/kafka0:/bitnami/kafka
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    network:
+      - zookeeper
+
+  kafka1:
+    image: "bitnami/kakfa"
+    ports:
+      - 9093:9092
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
+      - ALLOW_PLINTEXT_LISTENER: yes
+    volumes:
+      - $PWD/data/kafka1:/bitnami/kafka
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    network:
+      - zookeeper
+
+  kafka2:
+    image: "bitnami/kakfa"
+    ports:
+      - 9094:9092
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
+      - ALLOW_PLINTEXT_LISTENER: yes
+    volumes:
+      - $PWD/data/kafka2:/bitnami/kafka
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    network:
+      - zookeeper
