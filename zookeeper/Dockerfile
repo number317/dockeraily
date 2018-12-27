@@ -9,8 +9,8 @@ RUN apk update && \
 FROM java:openjdk-8u111-jdk-alpine
 RUN mkdir /zkui
 WORKDIR /zkui
+COPY entrypoint.sh .
 COPY --from=builder /opt/zkui/target/zkui-2.0-SNAPSHOT-jar-with-dependencies.jar .
 COPY --from=builder /opt/zkui/config.cfg .
-COPY entrypoint.sh .
 EXPOSE 9090
 CMD ["/bin/sh", "/zkui/entrypoint.sh"]
