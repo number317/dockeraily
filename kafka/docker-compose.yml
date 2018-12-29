@@ -2,49 +2,67 @@ version: "3"
 
 services:
   kafka0:
-    image: "bitnami/kakfa"
+    image: "bitnami/kafka"
     ports:
       - 9092:9092
     environment:
-      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
-      - ALLOW_PLINTEXT_LISTENER: yes
+      KAFKA_ZOOKEEPER_CONNECT: "zoo0:2181,zoo1:2181,zoo2:2181"
+      ALLOW_PLAINTEXT_LISTENER: "yes"
     volumes:
       - $PWD/data/kafka0:/bitnami/kafka
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
-    network:
+    networks:
       - zookeeper
 
   kafka1:
-    image: "bitnami/kakfa"
+    image: "bitnami/kafka"
     ports:
       - 9093:9092
     environment:
-      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
-      - ALLOW_PLINTEXT_LISTENER: yes
+      KAFKA_ZOOKEEPER_CONNECT: "zoo0:2181,zoo1:2181,zoo2:2181"
+      ALLOW_PLAINTEXT_LISTENER: "yes"
     volumes:
       - $PWD/data/kafka1:/bitnami/kafka
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
-    network:
+    networks:
       - zookeeper
 
   kafka2:
-    image: "bitnami/kakfa"
+    image: "bitnami/kafka"
     ports:
       - 9094:9092
     environment:
-      - KAFKA_ZOOKEEPER_CONNECT: zoo0:2181,zoo1:2181,zoo2:2181
-      - ALLOW_PLINTEXT_LISTENER: yes
+      KAFKA_ZOOKEEPER_CONNECT: "zoo0:2181,zoo1:2181,zoo2:2181"
+      ALLOW_PLAINTEXT_LISTENER: "yes"
     volumes:
       - $PWD/data/kafka2:/bitnami/kafka
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
-    network:
+    networks:
       - zookeeper
+
+  kafka_manager:
+    image: hlebalbau/kafka-manager:stable
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: "zoo0:2181,zoo1:2181,zoo2:2181"
+      APPLICATION_SECRET: "random-secret"
+    command: -Dpidfile.path=/dev/null
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+    - zookeeper
+
+networks:
+  zookeeper:
