@@ -50,13 +50,11 @@ services:
       - zookeeper
 
   kafka_manager:
-    image: hlebalbau/kafka-manager:stable
+    image: cheon/kafka-eagle:latest
     ports:
-      - "9000:9000"
+      - "8084:8084"
     environment:
-      ZK_HOSTS: "zoo0:2181,zoo1:2181,zoo2:2181"
-      APPLICATION_SECRET: "random-secret"
-    command: -Dpidfile.path=/dev/null
+      ZKSERVER: "zoo0:2181,zoo1:2181,zoo2:2181"
     deploy:
       replicas: 1
       restart_policy:
