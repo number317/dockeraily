@@ -52,7 +52,7 @@ services:
   kafka_manager:
     image: cheon/kafka-eagle:latest
     ports:
-      - "8084:8084"
+      - "8048:8048"
     environment:
       ZKSERVER: "zoo0:2181,zoo1:2181,zoo2:2181"
     deploy:

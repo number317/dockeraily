@@ -1,8 +1,8 @@
-FROM java:openjdk-8u111-jdk-alpine
+FROM anapsix/alpine-java:8u192b12_jdk
 ENV version=1.2.7
 ENV KE_HOME=/kafka-eagle
 RUN apk update && \
-        apk add curl && \
+        apk add curl sqlite && \
         curl -OL "https://github.com/smartloli/kafka-eagle-bin/archive/v${version}.tar.gz" && \
         tar -xzvf v${version}.tar.gz && \
         tar -xzvf kafka-eagle-bin-${version}/kafka-eagle-web-${version}-bin.tar.gz && \

@@ -33,3 +33,5 @@ rabbitmq/conf
 rabbitmq/data
 
 tomcat/tomcat
+
+zookeeper/data
