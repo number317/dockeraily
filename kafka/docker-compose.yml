@@ -49,7 +49,7 @@ services:
     networks:
       - zookeeper
 
-  kafka_manager:
+  kafka-eagle:
     image: cheon/kafka-eagle:latest
     ports:
       - "8048:8048"
