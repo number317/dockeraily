@@ -17,8 +17,13 @@ kafka/data
 
 kubectl/config
 
+logstash/config
+logstash/pipeline
+
 mariadb/mysql_conf
 mariadb/mysql_data
+
+maven/maven
 
 nginx/conf.d
 nginx/html

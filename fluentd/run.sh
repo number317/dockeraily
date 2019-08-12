@@ -10,13 +10,14 @@ init_dir(){
 
 main(){
     init_dir
-    docker run -d \
-               -v $PWD/conf/fluent.conf:/fluentd/etc/fluent.conf \
+    docker run -it \
+               -v $PWD/conf/:/fluentd/etc/ \
                -v $PWD/log:/fluentd/log \
                -v $PWD/plugins:/fluentd/plugins \
-               -p 24224:24224 \
+               -p 24225:24224 \
+               -u root \
                --name fluentd \
-               fluent/fluentd
+               fluent/fluentd:v1.0
 }
 
 main
