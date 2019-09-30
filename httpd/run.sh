@@ -7,7 +7,9 @@ init_dir(){
 }
 
 main(){
-    init_dir
+    if [[ ! -d conf && ! -d htdocs ]]; then
+        init_dir
+    fi
     docker run -d \
                -p 80:80 \
                -v $PWD/conf:/usr/local/apache2/conf:rw \

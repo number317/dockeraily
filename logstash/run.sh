@@ -7,7 +7,9 @@ init_dir(){
 }
 
 main(){
-    init_dir
+    if [[ ! -d config && ! -d pipeline ]]; then
+        init_dir
+    fi
     docker run -it \
                -v $PWD/config/:/usr/share/logstash/config \
                -v $PWD/pipeline:/usr/share/logstash/pipeline \

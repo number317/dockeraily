@@ -9,7 +9,9 @@ init_dir(){
 }
 
 main(){
-    init_dir
+    if [[ ! -d mysql_conf || ! -d mysql_data ]]; then
+        init_dir
+    fi
     docker run -d \
                -p 3306:3306 \
                -e MYSQL_ROOT_PASSWORD="admin" \

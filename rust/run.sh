@@ -1,9 +1,10 @@
 #!/bin/bash
 main(){
     docker run -it \
-               -v $HOME/Codes:/workspace \
+               -v $HOME/Codes:/home/cheon/Codes \
+               -u cheon \
                --name rust \
-               rust:slim \
+               cheon/vscode-rust:1.37.0 \
                bash
 }
 
