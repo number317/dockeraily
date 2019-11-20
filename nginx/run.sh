@@ -14,6 +14,7 @@ main(){
                -v $PWD/nginx.conf:/etc/nginx/nginx.conf:rw \
                -v $PWD/conf.d:/etc/nginx/conf.d:rw \
                -v $PWD/html:/usr/share/nginx/html:rw \
+               --restart unless-stopped \
                --name nginx \
                nginx
 }

@@ -24,6 +24,7 @@ mariadb/mysql_conf
 mariadb/mysql_data
 
 maven/maven
+minio/data
 
 nginx/conf.d
 nginx/html
@@ -40,3 +41,4 @@ rabbitmq/data
 tomcat/tomcat
 
 zookeeper/data
+
