@@ -1,3 +1,9 @@
+emqx/data
+emqx/etc
+
+emqx-edge/data
+emqx-edge/etc
+
 fluent-bit/conf
 fluent-bit/log
 
@@ -24,7 +30,11 @@ mariadb/mysql_conf
 mariadb/mysql_data
 
 maven/maven
+
 minio/data
+
+mysql/conf
+mysql/data
 
 nginx/conf.d
 nginx/html

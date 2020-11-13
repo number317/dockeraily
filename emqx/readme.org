@@ -1,0 +1,7 @@
+# emqx
+
+** Dashboard
+
+http://localhost:18083
+username: admin
+password: public
