@@ -14,8 +14,8 @@ main(){
     fi
     docker run -d \
         -p 3306:3306 \
-        -e MYSQL_ROOT_PASSWORD="1qaz!QAZ" \
-        -v $PWD/conf:/etc/mysql/conf.d:rw \
+        -e MYSQL_ROOT_PASSWORD='1qaz!QAZ' \
+        -v $PWD/conf:/etc/mysql/mysql.conf.d:rw \
         -v $PWD/data:/var/lib/mysql:rw \
         --name mysql \
         mysql:5.7
